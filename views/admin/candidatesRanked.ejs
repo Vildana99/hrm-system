@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rangiranje Kandidata</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/partials.css">
+    <link rel="stylesheet" href="/stylesheets/adminCandidatesRanking.css">
+</head>
+<body class="admin-ranking-body">
+
+<%- include('../partials/navbar.ejs') %>
+
+<div class="container admin-ranking-content mt-5">
+
+    <h1 class="text-center admin-ranking-title">Rangiranje kandidata</h1>
+
+    <!-- Tabela rangiranih kandidata -->
+    <table class="table table-striped admin-ranking-table">
+        <thead class="admin-ranking-thead">
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Ocjena</th>
+            <th>Komentar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% if (candidates.length > 0) { %>
+            <% candidates.forEach(candidate => { %>
+                <tr>
+                    <td><%= candidate.first_name %></td>
+                    <td><%= candidate.last_name %></td>
+                    <td><%= candidate.score !== null ? candidate.score : 'N/A' %></td>
+                    <td><%= candidate.comments || 'Nema komentara' %></td>
+                </tr>
+            <% }) %>
+        <% } else { %>
+            <tr>
+                <td colspan="4" class="text-center admin-ranking-no-candidates">Nema rangiranih kandidata za ovaj posao.</td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('../partials/footer.ejs') %>
+
+</body>
+</html>
+

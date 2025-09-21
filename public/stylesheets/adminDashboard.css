@@ -1,0 +1,38 @@
+.content {
+    background-color: #E3FDFD;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h3 {
+    color: #71C9CE;
+}
+
+.canvas-container {
+    background-color: #CBF1F5;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Smanjenje veličine grafikona */
+canvas {
+    max-width: 100%;
+    height: 300px !important;
+}
+
+/* Razmak između grafikona */
+.row.mb-5 {
+    margin-bottom: 30px;
+}
+
+/* Stil za grafikone jedan do drugog */
+.chart-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.chart-container .col {
+    flex: 1;
+}

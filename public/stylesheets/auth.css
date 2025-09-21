@@ -1,0 +1,68 @@
+body {
+    background: url('../images/pozadina.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.card {
+    background-color: #CBF1F5;
+    border: none;
+}
+.card-body {
+    padding: 2rem;
+}
+.form-control, .form-select {
+    background-color: #A6E3E9;
+    border: none;
+    color: #333;
+}
+.form-control::placeholder {
+    color: #555;
+}
+.form-control:focus, .form-select:focus {
+    background-color: #E3FDFD;
+    border: 1px solid #71C9CE;
+    box-shadow: none;
+}
+.btn-primary {
+    background-color: #71C9CE !important;
+    border: none !important;
+    color: white !important;
+}
+
+.btn-primary:hover {
+    background-color: #A6E3E9 !important;
+}
+
+.btn-primary:active {
+    background-color: #71C9CE !important;
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.text-danger, .text-success {
+    font-weight: bold;
+}
+.text-center a {
+    color: #71C9CE;
+}
+.text-center a:hover {
+    text-decoration: underline;
+}
+.card h3 {
+    color: #71C9CE;
+}
+a {
+    color: #71C9CE;
+    text-decoration: none;
+}
+a:hover {
+    color: #A6E3E9;
+}

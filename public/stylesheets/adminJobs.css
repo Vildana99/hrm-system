@@ -1,0 +1,57 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: #E3FDFD;
+}
+
+.admin-jobs-container {
+    flex: 1;
+    margin-top: 20px;
+}
+.admin-jobs-table {
+    margin-top: 20px;
+    border: 1px solid #A6E3E9;
+}
+.admin-jobs-table th, .admin-jobs-table td {
+    text-align: center;
+    vertical-align: middle;
+}
+.admin-jobs-table thead {
+    background-color: #A6E3E9;
+}
+.admin-jobs-table tbody tr:nth-child(odd) {
+    background-color: #E3FDFD;
+}
+.admin-jobs-table tbody tr:nth-child(even) {
+    background-color: #CBF1F5;
+}
+
+
+.alert-success {
+    background-color: #A6E3E9;
+    color: #02475e;
+}
+.alert-danger {
+    background-color: #CBF1F5;
+    color: #02475e;
+}
+
+.filt-btn{
+    background-color: #71C9CE !important;
+}
+.btn-success {
+    background-color: #71C9CE;
+    border-color: #02475e;
+    color: black;
+
+}
+.btn-success:hover {
+    background-color: #A6E3E9;
+    border-color: #A6E3E9;
+}
+

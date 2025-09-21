@@ -1,0 +1,49 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand">
+    <div class="container-fluid">
+        <!-- Lijevi cosak: logo -->
+        <a class="navbar-brand" href="/">
+            <span class="navbar-logo">HRM</span>
+        </a>
+
+        <!-- Navigacijske opcije -->
+        <ul class="navbar-nav mx-auto">
+            <% if (user && user.user_type === 'admin') { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/dashboard">Početna</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/jobs">Moji poslovi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/candidates/jobs">Kandidati</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/communication">Komunikacija</a>
+                </li>
+            <% } else if (user && user.user_type === 'user') { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/dashboard">Početna</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/profile">Moj profil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/dashboard">Poslovi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/applications">Moje prijave</a>
+                </li>
+            <% } %>
+        </ul>
+
+        <!-- Desni cosak: Dugme za odjavu -->
+        <div class="d-flex">
+            <span class="navbar-text me-3">Dobrodošao/la!</span>
+            <a href="/auth/logout" class="btn btn-primary">Odjavi se</a>
+        </div>
+    </div>
+</nav>
+
+
+

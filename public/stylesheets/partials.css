@@ -1,0 +1,52 @@
+.navbar {
+    background-color: #71C9CE !important;
+}
+
+.navbar .nav-link {
+    color: black !important;
+
+
+}
+
+.navbar .navbar-text {
+    color: #CBF1F5 !important;
+}
+
+footer {
+    background-color: #71C9CE !important;
+}
+
+footer a {
+    color: black !important;
+    text-decoration: none;
+}
+
+footer p {
+    color: #CBF1F5 !important;
+}
+.btn-primary {
+    background-color: #E3FDFD !important;
+    border: none !important;
+    color: black !important;
+}
+
+.btn-primary:hover {
+    background-color: #A6E3E9 !important;
+}
+
+.btn-primary:active {
+    background-color: #71C9CE !important;
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: none;
+}
+.navbar-logo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+}
+

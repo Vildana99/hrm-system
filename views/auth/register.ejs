@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registracija</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/auth.css">
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">Registracija</h3>
+
+                    <!-- Forma -->
+                    <form action="/auth/register" method="POST">
+                        <div class="mb-3">
+                            <label for="first_name" class="form-label">Ime</label>
+                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Unesite ime" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="last_name" class="form-label">Prezime</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Unesite prezime" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Unesite email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Lozinka</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Unesite lozinku" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user_type" class="form-label">Tip korisnika</label>
+                            <select class="form-select" id="user_type" name="user_type" required>
+                                <option value="user">Korisnik</option>
+                                <option value="admin">Administrator</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Registruj se</button>
+                    </form>
+
+                    <!-- Prikaz gresaka -->
+                    <% if (errors && errors.length > 0) { %>
+                        <ul class="text-danger">
+                            <% errors.forEach(error => { %>
+                                <li><%= error %></li>
+                            <% }) %>
+                        </ul>
+                    <% } %>
+
+                    <!-- Prikaz uspjesne poruke -->
+                    <% if (successMessage) { %>
+                        <p class="text-success text-center"><%= successMessage %></p>
+                    <% } %>
+                    <div class="text-center mt-3">
+                        <a href="/auth/login">Već imate račun? Prijavite se</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+

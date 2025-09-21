@@ -1,0 +1,23 @@
+body {
+    background-color: #E3FDFD;
+}
+.card {
+    border: 1px solid #CBF1F5;
+}
+.card-title {
+    color: #71C9CE;
+}
+.card-text small {
+    color: #A6E3E9;
+}
+.card-text strong {
+    color: #71C9CE;
+}
+.btn-success {
+    background-color: #71C9CE;
+    border-color: #71C9CE;
+}
+.btn-success:hover {
+    background-color: #A6E3E9;
+    border-color: #A6E3E9;
+}

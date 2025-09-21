@@ -1,0 +1,50 @@
+.admin-applications-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #E3FDFD;
+    margin: 0;
+}
+.filt-btn{
+    background-color: #71C9CE !important;
+
+}
+
+/* Naslov */
+.admin-applications-title {
+    color: black;
+    font-weight: bold;
+}
+
+/* Tabela */
+.admin-applications-table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.admin-applications-table thead {
+    background-color: #A6E3E9;
+    color: #FFFFFF;
+}
+
+.admin-applications-table tbody tr:nth-child(even) {
+    background-color: #CBF1F5;
+}
+
+.admin-applications-table tbody tr:nth-child(odd) {
+    background-color: #E3FDFD;
+}
+
+/* Dugmad */
+.admin-applications-btn {
+    background-color: #71C9CE;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+}
+
+.admin-applications-btn:hover {
+    background-color: #A6E3E9;
+}
+
+

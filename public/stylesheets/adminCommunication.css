@@ -1,0 +1,80 @@
+/* Body */
+.admin-communication-body {
+    background-color: #E3FDFD;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Glavni sadržaj */
+.admin-communication-content {
+    flex: 1 0 auto;
+}
+
+/* Naslov */
+.admin-communication-title {
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Tabela */
+.admin-communication-table {
+    background-color: #CBF1F5;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.admin-communication-table thead {
+    background-color: #A6E3E9;
+    color: white;
+}
+
+.admin-communication-table tbody tr {
+    background-color: #CBF1F5;
+}
+
+.admin-communication-table tbody tr:nth-child(even) {
+    background-color: #A6E3E9;
+    color: #FFFFFF;
+}
+/* Dugme za zakazivanje intervjua */
+.btn-schedule {
+    background-color: #71C9CE;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-schedule:hover {
+    background-color: #A6E3E9;
+    color: #f8f9fa;
+}
+
+/* Link za dodavanje komentara pretvoren u dugme */
+.btn-add-comment {
+    background-color: #71C9CE;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add-comment:hover {
+    background-color: #A6E3E9;
+    color: #f8f9fa;
+}
+.modal-btn{
+    background-color: #71C9CE !important;
+}
+.promijeni-btn{
+    background-color: #71C9CE !important;
+}

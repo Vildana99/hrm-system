@@ -1,0 +1,48 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #E3FDFD;
+}
+
+.container {
+    flex-grow: 1;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.card {
+    background-color: #CBF1F5;
+    border: 1px solid #A6E3E9;
+    border-radius: 10px;
+}
+.card-header {
+    background-color: #CBF1F5;
+    color: #03506F;
+    font-weight: bold;
+}
+.confirm-interview {
+    background-color: #03506F !important;
+    border-color: #71C9CE !important;
+    color: #FFFFFF !important;
+}
+.confirm-interview:hover {
+    background-color: #71C9CE !important;
+    border-color: #A6E3E9 !important;
+    color: black !important;
+}
+p {
+    color: #333333;
+}
+.container p {
+    text-align: center;
+    color: #71C9CE;
+}

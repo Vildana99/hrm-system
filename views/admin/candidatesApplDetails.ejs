@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Detalji Prijave</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/partials.css">
+    <link rel="stylesheet" href="/stylesheets/adminCandidatesApplDetails.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+<%- include('../partials/navbar.ejs') %>
+
+<div class="container mt-5 details-applications-container">
+    <h1 class="text-center mb-4 details-applications-title">
+        Detalji prijave - <%= application.first_name %> <%= application.last_name %>
+    </h1>
+
+    <div class="text-end mb-4">
+        <a href="/admin/candidates/jobs/<%= jobId %>/applications/<%= application.application_id %>/pdf" class="btn btn-primary">
+            Preuzmi PDF <i class="fas fa-download"></i>
+        </a>
+    </div>
+
+    <!-- Podaci o kandidatu -->
+    <div class="row mb-4 details-applications-section">
+        <div class="col-md-6">
+            <p class="details-applications-text">
+                <strong>Ime i prezime:</strong> <%= application.first_name %> <%= application.last_name %>
+            </p>
+            <p class="details-applications-text"><strong>Email:</strong> <%= application.email %></p>
+            <p class="details-applications-text"><strong>Status prijave:</strong> <%= application.application_status %></p>
+            <p class="details-applications-text"><strong>Datum prijave:</strong> <%= application.applied_at %></p>
+        </div>
+        <div class="col-md-6">
+            <p class="details-applications-text"><strong>Telefon:</strong> <%= application.personal_data?.phone_number || 'Nema podatka' %></p>
+            <p class="details-applications-text"><strong>Adresa:</strong> <%= application.personal_data?.address || 'Nema podatka' %></p>
+            <p class="details-applications-text"><strong>Datum rođenja:</strong> <%= application.personal_data?.date_of_birth || 'Nema podatka' %></p>
+            <p class="details-applications-text"><strong>O meni:</strong> <%= application.personal_data?.about_me || 'Nema podatka' %></p>
+        </div>
+    </div>
+
+    <!-- Radno iskustvo -->
+    <h3 class="details-applications-subtitle">Radno iskustvo</h3>
+    <% if (application.work_experience.length > 0) { %>
+        <ul class="details-applications-list">
+            <% application.work_experience.forEach(exp => { %>
+                <li class="details-applications-list-item">
+                    <strong><%= exp.company_name %></strong> - <%= exp.position %>
+                    (Od: <%= exp.start_date %> Do: <%= exp.end_date %>)
+                </li>
+                <p class="details-applications-text"><%= exp.description %></p>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p class="details-applications-text">Nemate radno iskustvo dostupno.</p>
+    <% } %>
+
+    <!-- Obrazovanje -->
+    <h3 class="details-applications-subtitle">Obrazovanje</h3>
+    <% if (application.education.length > 0) { %>
+        <ul class="details-applications-list">
+            <% application.education.forEach(edu => { %>
+                <li class="details-applications-list-item">
+                    <strong><%= edu.institution_name %></strong> - <%= edu.degree %>, <%= edu.field_of_study %>
+                    (Od: <%= edu.start_date %> Do: <%= edu.end_date %>)
+                </li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p class="details-applications-text">Nemate podatke o obrazovanju.</p>
+    <% } %>
+
+    <!-- Dugme za dodavanje komentara i ocjene -->
+    <div class="mt-4 text-center">
+        <a href="/admin/candidates/<%= jobId %>/applications/<%= application.application_id %>/add_comment"
+           class="details-applications-button">
+            Dodaj komentar i ocjenu
+        </a>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

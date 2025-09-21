@@ -1,0 +1,20 @@
+.terms-container {
+    background-color: #A6E3E9;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.terms-title {
+    color: #71C9CE;
+    font-weight: bold;
+}
+
+.terms-text {
+    color: #333;
+    line-height: 1.6;
+}
+
+.terms-list {
+    color: #555;
+    margin-left: 1.5rem;
+}

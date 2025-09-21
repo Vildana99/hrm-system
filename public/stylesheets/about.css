@@ -1,0 +1,15 @@
+.about-container {
+    background-color: #E3FDFD;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.about-title {
+    color: #71C9CE;
+    font-weight: bold;
+}
+
+.about-text {
+    color: #333;
+    line-height: 1.6;
+}

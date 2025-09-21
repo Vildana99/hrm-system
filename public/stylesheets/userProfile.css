@@ -1,0 +1,50 @@
+body {
+    background-color: #E3FDFD;
+}
+
+.card {
+    background-color: #CBF1F5;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #A6E3E9;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+    padding: 10px 20px;
+}
+
+.card-body {
+    color: #333;
+}
+
+.card p {
+    margin: 5px 0;
+}
+
+.card p strong {
+    color: #71C9CE;
+}
+
+.edit-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+}
+
+.edit-icon:hover {
+    color: #000
+}
+.btn-success {
+    background-color: #71C9CE;
+    border-color: #71C9CE;
+}
+.btn-success:hover {
+    background-color: #A6E3E9;
+    border-color: #A6E3E9;
+}

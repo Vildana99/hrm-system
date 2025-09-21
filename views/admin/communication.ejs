@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komunikacija</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/partials.css">
+    <link rel="stylesheet" href="/stylesheets/adminCommunication.css">
+</head>
+<body class="admin-communication-body">
+
+<%- include('../partials/navbar.ejs') %>
+<div class="container admin-communication-content my-4">
+    <h1 class="text-center admin-communication-title">Prijave kandidata</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered admin-communication-table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Kandidat</th>
+                <th>Email</th>
+                <th>Pozicija</th>
+                <th>Datum prijave</th>
+                <th>Status</th>
+                <th>Komentar</th>
+                <th>Akcije</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% applications.forEach((application, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= application.first_name %> <%= application.last_name %></td>
+                    <td><%= application.email %></td>
+                    <td><%= application.job_title %></td>
+                    <td><%= new Date(application.applied_at).toLocaleDateString() %></td>
+                    <td>
+                        <form method="POST" action="/admin/communication/applications/<%= application.application_id %>/status?_method=PATCH" class="d-flex">
+                            <select class="form-select me-2" name="statusId">
+                                <option value="1" <%= application.status_id === 1 ? 'selected' : '' %>>Applied</option>
+                                <option value="2" <%= application.status_id === 2 ? 'selected' : '' %>>Rejected</option>
+                                <option value="4" <%= application.status_id === 4 ? 'selected' : '' %>>Shortlisted</option>
+                                <option value="3" <%= application.status_id === 5 ? 'selected' : '' %>>Interview Scheduled</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary btn-sm promijeni-btn">Promijeni</button>
+                        </form>
+                    </td>
+                    <td>
+                        <% if (application.comment) { %>
+                            <p><%= application.comment %></p>
+                        <% } else { %>
+                            <button class="btn btn-add-comment btn-sm" data-bs-toggle="modal" data-bs-target="#addCommentModal-<%= application.application_id %>">Dodaj komentar</button>
+                        <% } %>
+                    </td>
+                    <td>
+                        <button class="btn btn-schedule btn-sm" data-bs-toggle="modal" data-bs-target="#scheduleInterviewModal-<%= application.application_id %>">Zakaži intervju</button>
+                    </td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal za dodavanje komentara -->
+<% applications.forEach((application) => { %>
+    <div class="modal fade" id="addCommentModal-<%= application.application_id %>" tabindex="-1" aria-labelledby="addCommentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCommentModalLabel">Dodaj komentar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="POST" action="/admin/communication/applications/<%= application.application_id %>/comment">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <textarea class="form-control" name="comment" rows="4" required></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary modal-btn">Dodaj komentar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<% }) %>
+
+<!-- Modal za zakazivanje intervjua -->
+<% applications.forEach((application) => { %>
+    <div class="modal fade" id="scheduleInterviewModal-<%= application.application_id %>" tabindex="-1" aria-labelledby="scheduleInterviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="scheduleInterviewModalLabel">Zakaži intervju</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="POST" action="/admin/communication/applications/<%= application.application_id %>/interview">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="interviewDate" class="form-label">Datum i vrijeme</label>
+                            <input type="datetime-local" class="form-control" id="interviewDate" name="interviewDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="location" class="form-label">Lokacija</label>
+                            <input type="text" class="form-control" id="location" name="location" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary modal-btn">Zakaži</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<% }) %>
+
+<%- include('../partials/footer.ejs') %>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

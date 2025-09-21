@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/partials.css">
+    <link rel="stylesheet" href="/stylesheets/contact.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+<%- include('../partials/navbar') %>
+
+<div class="contact-container container my-5 flex-grow-1">
+    <h1 class="contact-title text-center mb-4">Kontakt</h1>
+    <p class="contact-description lead text-center">
+        Za sva pitanja, sugestije ili tehničku podršku, možete nas kontaktirati na sljedeće načine:
+    </p>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="contact-card card shadow-sm">
+                <div class="card-body">
+                    <h5 class="contact-subtitle">Email</h5>
+                    <p class="contact-detail">hrmsistem@gmail.com</p>
+                    <h5 class="contact-subtitle">Telefon</h5>
+                    <p class="contact-detail">+387 33 123 456</p>
+                    <h5 class="contact-subtitle">Adresa</h5>
+                    <p class="contact-detail">Zmaja od Bosne 23-34, Sarajevo, Bosna i Hercegovina</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+

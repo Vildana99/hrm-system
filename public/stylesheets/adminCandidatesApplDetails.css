@@ -1,0 +1,71 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Glavni kontejner */
+.details-applications-container {
+    background-color: #E3FDFD;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+/* Naslov stranice */
+.details-applications-title {
+    color: black;
+    font-weight: bold;
+}
+
+/* Sekcija podataka */
+.details-applications-section {
+    background-color: #CBF1F5;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Sekcija za podnaslove */
+.details-applications-subtitle {
+    color: #A6E3E9;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Stil za tekst */
+.details-applications-text {
+    font-size: 1em;
+    color: #333333;
+    margin-bottom: 5px;
+}
+
+/* Radno iskustvo i obrazovanje liste */
+.details-applications-list {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #333333;
+}
+
+.details-applications-list-item {
+    margin-bottom: 10px;
+}
+
+/* Dugme za komentare */
+.details-applications-button {
+    background-color: #71C9CE;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.details-applications-button:hover {
+    background-color: #A6E3E9;
+    color: #FFFFFF;
+    text-decoration: none;
+}

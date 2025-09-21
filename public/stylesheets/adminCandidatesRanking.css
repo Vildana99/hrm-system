@@ -1,0 +1,41 @@
+/* Body stilovi */
+.admin-ranking-body {
+    background-color: #E3FDFD;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0; /* Ukloniti eventualne vanjske margine */
+}
+.admin-ranking-content {
+    flex: 1 0 auto; /* Sprječava da se sadržaj razvlači */
+    margin-bottom: 2rem; /* Dodaje razmak ispod sadržaja */
+}
+
+/* Naslov */
+.admin-ranking-title {
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Tabela */
+.admin-ranking-table {
+    background-color: #CBF1F5;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.admin-ranking-thead th {
+    background-color: #A6E3E9;
+    color: white;
+}
+
+/* Prazna poruka */
+.admin-ranking-no-candidates {
+    font-style: italic;
+    color: #71C9CE;
+}
+
+
+

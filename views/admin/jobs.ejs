@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregled poslova</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/partials.css">
+    <link rel="stylesheet" href="/stylesheets/adminJobs.css">
+
+</head>
+<body>
+
+<%- include('../partials/navbar.ejs') %>
+
+<div class="container admin-jobs-container">
+    <div id="notification-container"></div>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="text-center">Pregled poslova</h1>
+        <a href="/admin/jobs/new_job" class="btn btn-success">Dodaj novi posao</a>
+    </div>
+
+    <!-- Filter za status -->
+    <form class="mb-4" method="get" action="/admin/jobs">
+        <div class="row">
+            <div class="col-md-8">
+                <select name="status" class="form-select">
+                    <option value="all" <%= status === 'all' ? 'selected' : '' %>>Svi poslovi</option>
+                    <option value="active" <%= status === 'active' ? 'selected' : '' %>>Aktivni</option>
+                    <option value="archived" <%= status === 'archived' ? 'selected' : '' %>>Arhivirani</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary filt-btn">Filtriraj</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Tabela poslova -->
+    <div class="table-responsive">
+        <table class="table admin-jobs-table">
+            <thead>
+            <tr>
+                <th>Naziv posla</th>
+                <th>Kompanija</th>
+                <th>Lokacija</th>
+                <th>Rok za prijavu</th>
+                <th>Status</th>
+                <th>Akcije</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% if (jobs.length > 0) { %>
+                <% jobs.forEach(job => { %>
+                    <tr id="job-<%= job.id %>">
+                        <td><%= job.title %></td>
+                        <td><%= job.company %></td>
+                        <td><%= job.location %></td>
+                        <td><%= job.deadline %></td>
+                        <td id="status-<%= job.id %>"><%= job.status === 'active' ? 'Aktivan' : 'Arhiviran' %></td>
+                        <td>
+                            <% if (job.status === 'active') { %>
+                                <button class="btn btn-primary filt-btn" onclick="archiveJob(<%= job.id %>)">Arhiviraj</button>
+                            <% } else { %>
+                                <span class="text-muted">Arhiviran</span>
+                            <% } %>
+                        </td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="6" class="text-center">Nema dostupnih poslova.</td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    async function archiveJob(jobId) {
+        try {
+            const response = await fetch(`/admin/jobs/${jobId}/archive`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+
+                window.location.reload();
+            } else {
+                const notificationContainer = document.getElementById('notification-container');
+                notificationContainer.innerHTML = `
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    ${result.message || 'Greška prilikom arhiviranja posla.'}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            `;
+            }
+        } catch (err) {
+            console.error(err);
+            const notificationContainer = document.getElementById('notification-container');
+            notificationContainer.innerHTML = `
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Došlo je do greške.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `;
+        }
+    }
+
+</script>
+</body>
+</html>
+
+
