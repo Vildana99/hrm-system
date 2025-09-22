@@ -9,26 +9,26 @@
 
 ---
 
-## 📌 About the Project
+## About the Project
 The **HRM System** is a web-based Human Resource Management platform built for the academic year 2024/2025 at the Faculty of Natural Sciences and Mathematics, University of Sarajevo.  
 The system enables administrators (HR managers) to manage job postings, candidate applications, interviews, and communication, while users (candidates) can apply for jobs, manage their profiles, and track application statuses.  
 
 ---
 
-## 🚀 Features
-### 🔑 Authentication
+##  Features
+### Authentication
 - User registration & login with validation  
 - Password encryption (secure storage)  
 - Session management using cookies  
 
-### 👩‍💼 Admin Features
+### Admin Features
 - Create and manage job postings  
 - Define dynamic application forms (e.g., CV, motivational letter, portfolio, certificates)  
 - Manage candidates (approve, reject, shortlist)  
 - Automated email notifications to candidates based on application status  
 - Interview scheduling & management  
 
-### 👤 User Features
+### User Features
 - Browse and apply for available jobs  
 - Fill in customized application forms  
 - Manage personal profile (personal data, education, work experience)  
@@ -36,7 +36,7 @@ The system enables administrators (HR managers) to manage job postings, candidat
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠Tech Stack
 - **Backend:** Node.js, Express.js  
 - **Database:** PostgreSQL (ElephantSQL)  
 - **Frontend:** EJS, Bootstrap, CSS  
