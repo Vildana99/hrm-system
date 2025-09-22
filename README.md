@@ -36,7 +36,7 @@ The system enables administrators (HR managers) to manage job postings, candidat
 
 ---
 
-## 🛠Tech Stack
+## Tech Stack
 - **Backend:** Node.js, Express.js  
 - **Database:** PostgreSQL (ElephantSQL)  
 - **Frontend:** EJS, Bootstrap, CSS  
